@@ -1,0 +1,128 @@
+class Teacher:
+    def __init__(self, ad, soyad, ogretmen_no):
+        self.ad = ad
+        self.soyad = soyad
+        self.ogretmen_no = ogretmen_no
+        self.ogrenci_listesi = []
+
+    def ogrenci_ekle(self, ogrenci):
+        self.ogrenci_listesi.append(ogrenci) 
+
+    def tum_ogrencileri_goster(self):
+        for ogrenci in self.ogrenci_listesi:
+            print("Öğrenci Bilgileri:")
+            print("Ad:", ogrenci.ad)
+            print("Soyad:", ogrenci.soyad)
+            print("Öğrenci No:", ogrenci.ogrenci_no)
+            print("Vize Notu:", ogrenci.vize_notu)
+            print("Final Notu:", ogrenci.final_notu)
+            print("Kanaat Notu:", ogrenci.kanaat_notu)
+            print()
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+from studentÖdev import Student
+from teacherÖdev import Teacher
+def ogrenci_ekle(ogrenci, ogrenci_listesi):
+    ogrenci_listesi.append(ogrenci)
+
+def tum_ogrencileri_goster(ogrenci_listesi):
+    for ogrenci in ogrenci_listesi:
+        print("Öğrenci Bilgileri:")
+        print("Ad:", ogrenci.ad)
+        print("Soyad:", ogrenci.soyad)
+        print("Öğrenci No:", ogrenci.ogrenci_no)
+        print("Vize Notu:", ogrenci.vize_notu)
+        print("Final Notu:", ogrenci.final_notu)
+        print("Kanaat Notu:", ogrenci.Kanaat_notu)
+        print()
+
+ogrenci_listesi = []
+
+# Öğrenci oluştur ve ekle
+ogrenci1 = Student("Ahmet", "Yılmaz", "S12345")
+ogrenci1.notlari_belirle(80, 75)
+ogrenci_ekle(ogrenci1, ogrenci_listesi)
+
+ogrenci2 = Student("Ayşe", "Demir", "S54321")
+ogrenci2.notlari_belirle(70, 85)
+ogrenci_ekle(ogrenci2, ogrenci_listesi)
+
+
+# Öğrencileri göster
+tum_ogrencileri_goster(ogrenci_listesi)
+
+# Öğretmen oluştur
+ogretmen1 = Teacher("Fatma", "Kara", "T98765")
+
+# Tüm öğrencileri ve öğretmeni göster
+tum_ogrencileri_goster(ogrenci_listesi)
+print("Öğretmen Bilgileri:")
+print("Ad:", ogretmen1.ad)
+print("Soyad:", ogretmen1.soyad)
+print("Öğretmen No:", ogretmen1.ogretmen_no)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Student:
+    def __init__(self, ad, soyad,ogrenci_no):
+        self.ad = ad
+        self.soyad = soyad
+        self.ogrenci_no = ogrenci_no
+        self.vize_notu = None
+        self.final_notu = None
+
+    def ortalama_hesapla(self):
+        vize_toplam = 0
+        final_toplam = 0
+
+        for ogrenci in self.ogrenci_listesi:
+            vize_toplam += ogrenci.vize_notu
+            final_toplam += ogrenci.final_notu
+
+        vize_ortalama = vize_toplam / len(self.ogrenci_listesi)
+        final_ortalama = final_toplam / len(self.ogrenci_listesi)
+
+        return vize_ortalama, final_ortalama
+
+
+
